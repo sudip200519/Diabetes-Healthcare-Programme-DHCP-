@@ -5,22 +5,14 @@ from Tabs import diagnosis, home, result,  kc, talk2doc
 
 ######
 
-# --- Initialize Session State for Persistence ---
-if 'theme' not in st.session_state:
-    st.session_state.theme = "Light 🌞"
-if 'text_size' not in st.session_state:
-    st.session_state.text_size = "Medium"
 
-# --- Layout: Title + Theme Toggle + Text Size ---
-col1, col2, col3 = st.columns([6, 2, 2])  # Adjusted columns for the new text size selectbox
+
+# --- Layout: Title + Theme Toggle ---
+col1, col2 = st.columns([8, 2])
 with col1:
     st.title("💊 Diabetes HealthCare Programme")
 with col2:
-    theme = st.selectbox("Theme", ["Light 🌞", "Dark 🌙"], index=["Light 🌞", "Dark 🌙"].index(st.session_state.theme), label_visibility="collapsed")
-    st.session_state.theme = theme  # Update session state
-with col3:
-    text_size = st.selectbox("Text Size", ["Small", "Medium", "Large"], index=["Small", "Medium", "Large"].index(st.session_state.text_size), label_visibility="collapsed")
-    st.session_state.text_size = text_size  # Update session state
+    theme = st.selectbox("Theme", ["Light 🌞", "Dark 🌙"], label_visibility="collapsed")
 
 # --- Theme Color Variables ---
 if "Light" in theme:
@@ -41,14 +33,6 @@ else:
     select_text = "#ffffff"
     hover_bg = "#2a2d31"
     border_color = "#444"
-
-# --- Text Size Variables ---
-if text_size == "Small":
-    font_size = "12px"
-elif text_size == "Medium":
-    font_size = "16px"
-else:  # Large
-    font_size = "20px"
 
 # --- Apply Custom CSS ---
 st.markdown(
@@ -75,11 +59,10 @@ st.markdown(
         transition: all 0.3s ease-in-out;
     }}
 
-    /* Text (with dynamic font size) */
+    /* Text */
     h1, h2, h3, p, span, div {{
         color: {text_color} !important;
-        font-size: {font_size} !important;  /* Dynamic text size */
-        transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
+        transition: color 0.3s ease-in-out;
     }}
 
     /* Dropdown main button */
@@ -107,15 +90,13 @@ st.markdown(
         transition: all 0.3s ease-in-out;
     }}
 
-    /* Dropdown individual options (smaller text, left-aligned) */
+    /* Dropdown individual options */
     div[data-baseweb="option"] {{
         background-color: {select_bg};
         color: {select_text};
         border-radius: 6px;
         padding: 8px 12px;
         margin-bottom: 4px;
-        font-size: 14px;  /* Smaller text size */
-        text-align: left;  /* Left-aligned for better positioning */
         transition: all 0.2s ease-in-out;
     }}
     div[data-baseweb="option"]:hover {{
@@ -125,6 +106,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 #####
