@@ -59,6 +59,23 @@ st.markdown(
         transition: all 0.3s ease-in-out;
     }}
 
+    /* Improve visibility of selected text inside dropdown */
+    div[data-baseweb="select"] span {
+        font-size: 16px !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.3px;
+        color: inherit !important;
+    }
+
+    /* Improve visibility of placeholder and value text */
+    div[data-baseweb="select"] div[role="button"] {
+        color: inherit !important;
+        font-size: 16px !important;
+        font-weight: 600 !important;
+        text-align: center;
+    }
+
+
     /* Text elements */
     h1, h2, h3, p, span, div {{
         color: {text_color} !important;
