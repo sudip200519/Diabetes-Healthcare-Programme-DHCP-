@@ -59,8 +59,8 @@ st.markdown(
 
     /* Improve visibility of selected text inside dropdown */
     div[data-baseweb="select"] span {{
-        font-size: 16px !important;
-        font-weight: 600 !important;
+        font-size: 8px !important;
+        font-weight: 300 !important;
         letter-spacing: 0.3px;
         color: inherit !important;
     }}
@@ -68,8 +68,8 @@ st.markdown(
     /* Improve visibility of placeholder and value text */
     div[data-baseweb="select"] div[role="button"] {{
         color: inherit !important;
-        font-size: 12px !important;
-        font-weight: 500 !important;
+        font-size: 6px !important;
+        font-weight: 250 !important;
         text-align: center;
     }}
 
@@ -84,11 +84,11 @@ st.markdown(
         background-color: {select_bg};
         color: {select_text};
         border: 1.5px solid {border_color};
-        border-radius: 5px; #
-        padding: 6px 6px;
+        border-radius: 4px; #
+        padding: 5px 5px;
         font-weight: 100;
-        margin-top: 6px;
-        margin-right: 12px;
+        margin-top: 5px;
+        margin-right: 10px;
         transition: all 0.3s ease-in-out;
     }}
 
@@ -113,7 +113,7 @@ st.markdown(
         background-color: {select_bg};
         color: {select_text};
         padding: 10px;
-        font-weight: 500;
+        font-weight: 250;
         transition: background-color 0.2s ease-in-out;
     }}
 
