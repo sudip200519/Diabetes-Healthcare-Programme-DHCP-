@@ -4,9 +4,6 @@ from web_functions import load_data
 from Tabs import diagnosis, home, result,  kc, talk2doc
 
 ######
-
-import streamlit as st
-
 # --- Layout: Title + Theme Toggle ---
 col1, col2 = st.columns([8, 2])
 with col1:
@@ -60,21 +57,20 @@ st.markdown(
     }}
 
     /* Improve visibility of selected text inside dropdown */
-    div[data-baseweb="select"] span {
+    div[data-baseweb="select"] span {{
         font-size: 16px !important;
         font-weight: 600 !important;
         letter-spacing: 0.3px;
         color: inherit !important;
-    }
+    }}
 
     /* Improve visibility of placeholder and value text */
-    div[data-baseweb="select"] div[role="button"] {
+    div[data-baseweb="select"] div[role="button"] {{
         color: inherit !important;
         font-size: 16px !important;
         font-weight: 600 !important;
         text-align: center;
-    }
-
+    }}
 
     /* Text elements */
     h1, h2, h3, p, span, div {{
