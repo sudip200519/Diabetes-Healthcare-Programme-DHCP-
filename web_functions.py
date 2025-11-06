@@ -48,29 +48,7 @@ def predict(X, y, features):
     
     return prediction, score
 
-# extra
-col1, col2 = st.columns([8, 2])
-with col2:
-    theme = st.selectbox("Theme", ["Light", "Dark"])
 
-if theme == "Light":
-    bg_color = "#ffffff"
-    text_color = "#000000"
-else:
-    bg_color = "#0e1117"
-    text_color = "#fafafa"
-
-st.markdown(
-    f"""
-    <style>
-    body {{
-        background-color: {bg_color};
-        color: {text_color};
-    }}
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 
 
