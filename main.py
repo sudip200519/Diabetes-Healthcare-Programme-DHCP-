@@ -85,7 +85,7 @@ st.markdown(
         border: 1.5px solid {border_color};
         border-radius: 5px; #
         padding: 6px 6px;
-        font-weight: 500;
+        font-weight: 100;
         margin-top: 6px;
         margin-right: 12px;
         transition: all 0.3s ease-in-out;
