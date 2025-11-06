@@ -13,8 +13,8 @@ with col2:
 # --- Theme Color Variables ---
 if "Light" in theme:
     bg_color = "#ffffff"
-    text_color = "#FFFFFF"
-    sidebar_bg = "#f0f2f6"
+    text_color = "#000000"
+    sidebar_bg = "#ffffff"
 else:
     bg_color = "#0e1117"
     text_color = "#fafafa"
