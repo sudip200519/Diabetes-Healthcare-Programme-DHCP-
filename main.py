@@ -5,7 +5,7 @@ from Tabs import diagnosis, home, result,  kc, talk2doc
 
 ######
 
-
+import streamlit as st
 
 # --- Layout: Title + Theme Toggle ---
 col1, col2 = st.columns([8, 2])
@@ -22,7 +22,7 @@ if "Light" in theme:
     header_bg = "#ffffff"
     select_bg = "#ffffff"
     select_text = "#000000"
-    hover_bg = "#e6e6e6"       # touch effect grey
+    hover_bg = "#e6e6e6"
     border_color = "#d0d0d0"
 else:
     bg_color = "#0e1117"
@@ -31,14 +31,14 @@ else:
     header_bg = "#0e1117"
     select_bg = "#1a1d21"
     select_text = "#ffffff"
-    hover_bg = "#2a2d31"
-    border_color = "#444"
+    hover_bg = "#2a2d33"
+    border_color = "#333333"
 
 # --- Apply Custom CSS ---
 st.markdown(
     f"""
     <style>
-    /* Main background */
+    /* Main page background */
     [data-testid="stAppViewContainer"] {{
         background-color: {bg_color};
         color: {text_color};
@@ -51,7 +51,7 @@ st.markdown(
         transition: all 0.3s ease-in-out;
     }}
 
-    /* Header bar */
+    /* Header */
     [data-testid="stHeader"] {{
         background-color: {header_bg} !important;
         color: {text_color} !important;
@@ -59,55 +59,57 @@ st.markdown(
         transition: all 0.3s ease-in-out;
     }}
 
-    /* Text */
+    /* Text elements */
     h1, h2, h3, p, span, div {{
         color: {text_color} !important;
         transition: color 0.3s ease-in-out;
     }}
 
-    /* Dropdown main button */
+    /* Theme dropdown container */
     div[data-baseweb="select"] > div {{
         background-color: {select_bg};
         color: {select_text};
-        border-radius: 8px;
+        border: 1.5px solid {border_color};
+        border-radius: 10px;
         padding: 6px 10px;
-        border: 1px solid {border_color};
+        font-weight: 500;
+        margin-top: 6px;
+        margin-right: 12px;
         transition: all 0.3s ease-in-out;
-        box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
     }}
+
+    /* Hover / focus effect for dropdown */
     div[data-baseweb="select"] > div:hover {{
         background-color: {hover_bg};
+        box-shadow: 0px 0px 6px rgba(0,0,0,0.1);
         cursor: pointer;
     }}
 
-    /* Dropdown options container */
+    /* Dropdown popover (option list) */
     div[data-baseweb="popover"] {{
         background-color: {select_bg} !important;
+        color: {select_text} !important;
+        border: 1.5px solid {border_color};
         border-radius: 10px;
-        border: 1px solid {border_color};
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        padding: 6px;
-        transition: all 0.3s ease-in-out;
+        overflow: hidden;
     }}
 
-    /* Dropdown individual options */
-    div[data-baseweb="option"] {{
+    /* Each option inside dropdown */
+    li[role="option"] {{
         background-color: {select_bg};
         color: {select_text};
-        border-radius: 6px;
-        padding: 8px 12px;
-        margin-bottom: 4px;
-        transition: all 0.2s ease-in-out;
+        padding: 10px;
+        font-weight: 500;
+        transition: background-color 0.2s ease-in-out;
     }}
-    div[data-baseweb="option"]:hover {{
+
+    li[role="option"]:hover {{
         background-color: {hover_bg};
     }}
     </style>
     """,
     unsafe_allow_html=True
 )
-
-
 
 #####
 
