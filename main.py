@@ -5,6 +5,7 @@ from Tabs import diagnosis, home, result,  kc, talk2doc
 
 ######
 # --- Layout: Title + Theme Toggle ---
+"""
 col1, col2 = st.columns([0, 2])
 with col1:
    
@@ -33,7 +34,7 @@ else:
 
 # --- Apply Custom CSS ---
 st.markdown(
-    f"""
+    f""" """
     <style>
     /* Main page background */
     [data-testid="stAppViewContainer"] {{
@@ -120,11 +121,11 @@ st.markdown(
         background-color: {hover_bg};
     }}
     </style>
-    """,
+  """  """,
     unsafe_allow_html=True
 )
-
-#####
+"""
+##### 
 
 # Configure the app
 st.set_page_config(
