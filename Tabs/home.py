@@ -3,22 +3,37 @@ import PIL
 
 #######
 col1, col2 = st.columns([8, 2])
+with col1:
+    st.title("💊 Diabetes HealthCare Programme")
 with col2:
-    theme = st.selectbox("Theme", ["Light", "Dark"])
+    theme = st.selectbox("Theme", ["Light 🌞", "Dark 🌙"], label_visibility="collapsed")
 
-if theme == "Light":
+# --- Theme Color Variables ---
+if "Light" in theme:
     bg_color = "#ffffff"
     text_color = "#000000"
+    sidebar_bg = "#f0f2f6"
 else:
     bg_color = "#0e1117"
     text_color = "#fafafa"
+    sidebar_bg = "#262730"
 
+# --- Apply Custom CSS ---
 st.markdown(
     f"""
     <style>
-    body {{
+    /* Main background */
+    [data-testid="stAppViewContainer"] {{
         background-color: {bg_color};
         color: {text_color};
+    }}
+    /* Sidebar background */
+    [data-testid="stSidebar"] {{
+        background-color: {sidebar_bg};
+    }}
+    /* Header & text color */
+    h1, h2, h3, p, span, div {{
+        color: {text_color} !important;
     }}
     </style>
     """,
