@@ -104,7 +104,7 @@ st.markdown(
         color: {select_text} !important;
         border: 1.5px solid {border_color};
         border-radius: 10px;
-        overflow: hidden;
+        overflow: unhidden;
     }}
 
     /* Each option inside dropdown */
