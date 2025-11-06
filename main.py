@@ -67,8 +67,8 @@ st.markdown(
     /* Improve visibility of placeholder and value text */
     div[data-baseweb="select"] div[role="button"] {{
         color: inherit !important;
-        font-size: 16px !important;
-        font-weight: 600 !important;
+        font-size: 12px !important;
+        font-weight: 500 !important;
         text-align: center;
     }}
 
