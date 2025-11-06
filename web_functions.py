@@ -49,7 +49,7 @@ def predict(X, y, features):
     return prediction, score
 
 # extra
- col1, col2 = st.columns([8, 2])
+col1, col2 = st.columns([8, 2])
 with col2:
     theme = st.selectbox("Theme", ["Light", "Dark"])
 
