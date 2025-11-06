@@ -83,8 +83,8 @@ st.markdown(
         background-color: {select_bg};
         color: {select_text};
         border: 1.5px solid {border_color};
-        border-radius: 10px;
-        padding: 6px 10px;
+        border-radius: 5px; #
+        padding: 6px 6px;
         font-weight: 500;
         margin-top: 6px;
         margin-right: 12px;
