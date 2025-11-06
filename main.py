@@ -12,12 +12,14 @@ with col2:
 
 # --- Theme Color Variables ---
 if "Light" in theme:
-    bg_color = "#ffffff"          # Main background
-    text_color = "#000000"        # Text color
-    sidebar_bg = "#f0f2f6"        # Sidebar background
-    header_bg = "#ffffff"         # Header background (was black)
-    select_bg = "#ffffff"         # Dropdown background
+    bg_color = "#ffffff"
+    text_color = "#000000"
+    sidebar_bg = "#f0f2f6"
+    header_bg = "#ffffff"
+    select_bg = "#ffffff"
     select_text = "#000000"
+    hover_bg = "#e6e6e6"
+    border_color = "#d0d0d0"
 else:
     bg_color = "#0e1117"
     text_color = "#fafafa"
@@ -25,6 +27,8 @@ else:
     header_bg = "#0e1117"
     select_bg = "#1a1d21"
     select_text = "#ffffff"
+    hover_bg = "#2a2d33"
+    border_color = "#333333"
 
 # --- Apply Custom CSS ---
 st.markdown(
@@ -43,11 +47,11 @@ st.markdown(
         transition: all 0.3s ease-in-out;
     }}
 
-    /* Header (top bar) */
+    /* Header */
     [data-testid="stHeader"] {{
         background-color: {header_bg} !important;
         color: {text_color} !important;
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid {border_color};
         transition: all 0.3s ease-in-out;
     }}
 
@@ -57,21 +61,46 @@ st.markdown(
         transition: color 0.3s ease-in-out;
     }}
 
-    /* Dropdown (theme select box) */
+    /* Theme dropdown container */
     div[data-baseweb="select"] > div {{
         background-color: {select_bg};
         color: {select_text};
+        border: 1.5px solid {border_color};
         border-radius: 10px;
-        padding: 4px 6px;
+        padding: 6px 10px;
+        font-weight: 500;
         margin-top: 6px;
         margin-right: 12px;
         transition: all 0.3s ease-in-out;
     }}
 
-    /* Dropdown popover (options list) */
+    /* Hover / focus effect for dropdown */
+    div[data-baseweb="select"] > div:hover {{
+        background-color: {hover_bg};
+        box-shadow: 0px 0px 6px rgba(0,0,0,0.1);
+        cursor: pointer;
+    }}
+
+    /* Dropdown popover (option list) */
     div[data-baseweb="popover"] {{
         background-color: {select_bg} !important;
         color: {select_text} !important;
+        border: 1.5px solid {border_color};
+        border-radius: 10px;
+        overflow: hidden;
+    }}
+
+    /* Each option inside dropdown */
+    li[role="option"] {{
+        background-color: {select_bg};
+        color: {select_text};
+        padding: 10px;
+        font-weight: 500;
+        transition: background-color 0.2s ease-in-out;
+    }}
+
+    li[role="option"]:hover {{
+        background-color: {hover_bg};
     }}
     </style>
     """,
