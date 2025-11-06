@@ -7,7 +7,7 @@ from Tabs import diagnosis, home, result,  kc, talk2doc
 # --- Layout: Title + Theme Toggle ---
 col1, col2 = st.columns([0, 2])
 with col1:
-   # st.title("💊 Diabetes HealthCare Programme")
+   
 with col2:
     theme = st.selectbox("Theme", ["🌞", "🌙"], label_visibility="collapsed")
 
