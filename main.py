@@ -4,7 +4,6 @@ from web_functions import load_data
 from Tabs import diagnosis, home, result,  kc, talk2doc
 
 ######
-
 # --- Layout: Title + Theme Toggle ---
 col1, col2 = st.columns([8, 2])
 with col1:
@@ -96,6 +95,8 @@ st.markdown(
         padding: 8px 12px;
         margin-bottom: 4px;
         transition: all 0.2s ease-in-out;
+        font-size: 14px;  /* Reduced text size */
+        text-align: center;  /* Position-wise justified (centered) */
     }}
     div[data-baseweb="option"]:hover {{
         background-color: {hover_bg};
@@ -104,6 +105,8 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+
 #####
 
 # Configure the app
