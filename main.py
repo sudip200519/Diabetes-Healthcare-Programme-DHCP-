@@ -10,7 +10,7 @@ st.set_page_config(
     initial_sidebar_state='auto'
     
 )
-
+#######
 # Theme selector in a column layout (fixed: adjusted column ratios for visibility)
 col1, col2 = st.columns([8, 1])  # Changed [0, 2] to [1, 2] for col1 to have some width
 with col1:
@@ -25,7 +25,7 @@ if theme == "🌞":  # Assuming 🌞 is light mode
     bg_color = "#ffffff"
     text_color = "#000000"
     sidebar_bg = "#f0f2f6"
-    header_bg = "#ffffff"
+    header_bg = "#E6DEDC"
     select_bg = "#ffffff"
     select_text = "#000000"
     hover_bg = "#e6e6e6"
@@ -134,7 +134,7 @@ f"""
     """,
     unsafe_allow_html=True
 )
-
+######
 # Tabs dictionary
 Tabs = {
     "Home": home,
