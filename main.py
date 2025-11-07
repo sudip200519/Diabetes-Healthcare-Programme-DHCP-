@@ -11,7 +11,7 @@ st.set_page_config(
 )
 
 # Theme selector in a column layout (fixed: adjusted column ratios for visibility)
-ol1, col2 = st.columns([1, 2])
+col1, col2 = st.columns([1, 2])
 with col1:
     st.markdown("**Select Theme:**")
 with col2:
