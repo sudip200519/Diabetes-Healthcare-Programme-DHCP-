@@ -51,7 +51,7 @@ st.markdown(
     [data-testid="stHeader"] {{
         background-color: {header_bg} !important;
         color: {text_color} !important;
-        border-bottom: 1px solid {border_color};
+        border_bottom: 1px solid {border_color};
         transition: all 0.3 ease-in-out;
     }}
 
