@@ -11,12 +11,12 @@ st.set_page_config(
 )
 
 # Theme selector in a column layout (fixed: adjusted column ratios for visibility)
-col1, col2 = st.columns([1, 2])  # Changed [0, 2] to [1, 2] for col1 to have some width
+ol1, col2 = st.columns([1, 2])
 with col1:
-    # Added a placeholder or label if needed; currently empty as in original
-    pass
+    st.markdown("**Select Theme:**")
 with col2:
-   theme = st.selectbox("Theme",["Light🌞", "🌙Dark"], label_visibility="collapsed")
+    theme = st.selectbox("Theme", ["Light🌞", "🌙Dark"], label_visibility="collapsed")
+
 # --- Theme Color Variables ---
 # Fixed: Check for "🌞" (sun emoji) for light mode instead of "Light"
 if theme == "🌞":  # Assuming 🌞 is light mode
