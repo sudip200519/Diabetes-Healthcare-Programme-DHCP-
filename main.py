@@ -43,7 +43,7 @@ else:  # 🌙 for dark mode
 # --- Apply Custom CSS ---
 # Fixed: Removed invalid f-string syntax (extra quotes), corrected CSS errors (e.g., # comment, overflow value)
 st.markdown(
-
+f"""
     <style>
     /* Main page background */
     [data-testid="stAppViewContainer"] {{
@@ -51,7 +51,7 @@ st.markdown(
         color: {text_color};
       border.radius="10"
     }}
-f"""
+
     /* Sidebar */
     [data-testid="stSidebar"] {{
         background-color: {sidebar_bg};
