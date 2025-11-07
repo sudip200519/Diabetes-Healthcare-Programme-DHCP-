@@ -29,7 +29,7 @@ if theme == "🌞":  # Assuming 🌞 is light mode
     select_text = "#000000"
     hover_bg = "#e6e6e6"
     border_color = "#d0d0d0"
-    ont-size: 14px !important;  
+    font-size: 14px !important;  
     font-weight: 400 !important;
     letter-spacing: 0.3px;
 else:  # 🌙 for dark mode
