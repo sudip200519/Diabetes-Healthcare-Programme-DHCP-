@@ -18,6 +18,7 @@ with col1:
     # Added a placeholder or label if needed; currently empty as in original
     pass
 with col2:
+    st.sidebar.title('Navigation')
     theme = st.selectbox("Theme", ["🌞", "🌙"], label_visibility="collapsed")
     height='50'
     width='30'
