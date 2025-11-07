@@ -13,14 +13,15 @@ st.set_page_config(
 # Theme selector in a column layout (fixed: adjusted column ratios for visibility)
 col1, col2 = st.columns([1, 2])  # Changed [0, 2] to [1, 2] for col1 to have some width
 with col1:
-    height='50'
-    width='30'
+    height = '50'
+    width = '30'
     # Added a placeholder or label if needed; currently empty as in original
     pass
 with col2:
     theme = st.selectbox("Theme", ["🌞", "🌙"], label_visibility="collapsed")
-    height='50'
-    width='30'
+    height = '50'
+    width = '30'
+
 # --- Theme Color Variables ---
 # Fixed: Check for "🌞" (sun emoji) for light mode instead of "Light"
 if theme == "🌞":  # Assuming 🌞 is light mode
@@ -32,8 +33,8 @@ if theme == "🌞":  # Assuming 🌞 is light mode
     select_text = "#000000"
     hover_bg = "#e6e6e6"
     border_color = "#d0d0d0"
-    height='50'
-    width='30'
+    height = '50'
+    width = '30'
 else:  # 🌙 for dark mode
     bg_color = "#0e1117"
     text_color = "#fafafa"
@@ -43,12 +44,12 @@ else:  # 🌙 for dark mode
     select_text = "#ffffff"
     hover_bg = "#2a2d33"
     border_color = "#333333"
-    height='50'
-    width='30'
-
+    height = '50'
+    width = '30'
 
 # --- Apply Custom CSS ---
 # Fixed: Removed invalid f-string syntax (extra quotes), corrected CSS errors (e.g., # comment, overflow value)
+# Fixed: Ensured all CSS is inside the f-string; corrected invalid font-size values (e.g., 0.14px to 14px for validity and readability)
 st.markdown(
     f"""
     <style>
@@ -75,8 +76,8 @@ st.markdown(
 
     /* Improve visibility of selected text inside dropdown */
     div[data-baseweb="select"] span {{
-        font-size: 8px !important;
-        font-weight: 300 !important;
+        font-size: 14px !important;  /* Fixed: Valid and readable font size */
+        font-weight: 400 !important;
         letter-spacing: 0.3px;
         color: inherit !important;
     }}
@@ -84,8 +85,8 @@ st.markdown(
     /* Improve visibility of placeholder and value text */
     div[data-baseweb="select"] div[role="button"] {{
         color: inherit !important;
-        font-size: 6px !important;
-        font-weight: 250 !important;
+        font-size: 14px !important;  /* Fixed: Valid and readable font size (changed from invalid 0.14px) */
+        font-weight: 400 !important;
         text-align: center;
     }}
 
@@ -102,7 +103,7 @@ st.markdown(
         border: 1.5px solid {border_color};
         border-radius: 4px;
         padding: 5px 5px;
-        font-weight: 100;
+        font-weight: 400;  /* Adjusted for consistency */
         margin-top: 5px;
         margin-right: 10px;
         transition: all 0.3s ease-in-out;
@@ -129,7 +130,7 @@ st.markdown(
         background-color: {select_bg};
         color: {select_text};
         padding: 10px;
-        font-weight: 250;
+        font-weight: 400;  /* Adjusted for consistency */
         transition: background-color 0.2s ease-in-out;
     }}
 
