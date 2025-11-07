@@ -3,9 +3,7 @@ from web_functions import load_data
 
 from Tabs import diagnosis, home, result,  kc, talk2doc
 
-######
-# --- Layout: Title + Theme Toggle ---
-"""
+
 col1, col2 = st.columns([0, 2])
 with col1:
    
@@ -124,8 +122,7 @@ st.markdown(
   """  """,
     unsafe_allow_html=True
 )
-"""
-##### 
+
 
 # Configure the app
 st.set_page_config(
