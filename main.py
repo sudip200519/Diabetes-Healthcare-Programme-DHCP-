@@ -13,14 +13,11 @@ st.set_page_config(
 # Theme selector in a column layout (fixed: adjusted column ratios for visibility)
 col1, col2 = st.columns([1, 2])  # Changed [0, 2] to [1, 2] for col1 to have some width
 with col1:
-    height='50'
-    width='30'
     # Added a placeholder or label if needed; currently empty as in original
     pass
 with col2:
     theme = st.selectbox("Theme", ["🌞", "🌙"], label_visibility="collapsed")
-    height='50'
-    width='30'
+
 # --- Theme Color Variables ---
 # Fixed: Check for "🌞" (sun emoji) for light mode instead of "Light"
 if theme == "🌞":  # Assuming 🌞 is light mode
@@ -32,8 +29,6 @@ if theme == "🌞":  # Assuming 🌞 is light mode
     select_text = "#000000"
     hover_bg = "#e6e6e6"
     border_color = "#d0d0d0"
-    height='50'
-    width='30'
 else:  # 🌙 for dark mode
     bg_color = "#0e1117"
     text_color = "#fafafa"
@@ -43,21 +38,6 @@ else:  # 🌙 for dark mode
     select_text = "#ffffff"
     hover_bg = "#2a2d33"
     border_color = "#333333"
-    height='50'
-    width='30'
-div[data-baseweb="select"] span {{
-        font-size: 14px !important;  /* Adjusted: Increased font size for better readability */
-        font-weight: 400 !important;
-        letter-spacing: 0.3px;
-        color: inherit !important;
-    }}
-    /* Improve visibility of placeholder and value text */
-div[data-baseweb="select"] div[role="button"] {{
-        color: inherit !important;
-        font-size: 14px !important;  /* Adjusted: Increased font size for better readability */
-        font-weight: 400 !important;
-        text-align: center;
-    }}
 
 # --- Apply Custom CSS ---
 # Fixed: Removed invalid f-string syntax (extra quotes), corrected CSS errors (e.g., # comment, overflow value)
