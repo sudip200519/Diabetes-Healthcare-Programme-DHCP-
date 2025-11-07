@@ -38,6 +38,7 @@ else:  # 🌙 for dark mode
     select_text = "#ffffff"
     hover_bg = "#2a2d33"
     border_color = "#333333"
+    size="10"
 
 # --- Apply Custom CSS ---
 # Fixed: Removed invalid f-string syntax (extra quotes), corrected CSS errors (e.g., # comment, overflow value)
