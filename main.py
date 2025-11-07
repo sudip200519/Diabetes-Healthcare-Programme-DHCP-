@@ -38,13 +38,13 @@ st.markdown(
     [data-testid="stAppViewContainer"] {{
         background-color: {bg_color};
         color: {text_color};
-        transition: all 0.3s ease-in-out;
+        transition: all 0.3 ease-in-out;
     }}
 
     /* Sidebar */
     [data-testid="stSidebar"] {{
         background-color: {sidebar_bg};
-        transition: all 0.3s ease-in-out;
+        transition: all 0.3 ease-in-out;
     }}
 
     /* Header */
@@ -52,7 +52,7 @@ st.markdown(
         background-color: {header_bg} !important;
         color: {text_color} !important;
         border-bottom: 1px solid {border_color};
-        transition: all 0.3s ease-in-out;
+        transition: all 0.3 ease-in-out;
     }}
 
     /* Improve visibility of selected text inside dropdown */
@@ -74,7 +74,7 @@ st.markdown(
     /* Text elements */
     h1, h2, h3, p, span, div {{
         color: {text_color} !important;
-        transition: color 0.3s ease-in-out;
+        transition: color 0.3 ease-in-out;
     }}
 
     /* Theme dropdown container */
@@ -112,7 +112,7 @@ st.markdown(
         color: {select_text};
         padding: 10px;
         font-weight: 250;
-        transition: background-color 0.2s ease-in-out;
+        transition: background-color 0.2 ease-in-out;
     }}
 
     li[role="option"]:hover {{
