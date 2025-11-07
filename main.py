@@ -49,7 +49,7 @@ st.markdown(
     [data-testid="stAppViewContainer"] {{
         background-color: {bg_color};
         color: {text_color};
-        transition: all 0.3s ease-in-out;
+      border.radius="10"
     }}
 f"""
     /* Sidebar */
