@@ -39,12 +39,11 @@ else:  # 🌙 for dark mode
     hover_bg = "#2a2d33"
     border_color = "#333333"
     size="10"
-    border-radius: 10px;
 
 # --- Apply Custom CSS ---
 # Fixed: Removed invalid f-string syntax (extra quotes), corrected CSS errors (e.g., # comment, overflow value)
 st.markdown(
-    f"""
+
     <style>
     /* Main page background */
     [data-testid="stAppViewContainer"] {{
@@ -52,7 +51,7 @@ st.markdown(
         color: {text_color};
         transition: all 0.3s ease-in-out;
     }}
-
+f"""
     /* Sidebar */
     [data-testid="stSidebar"] {{
         background-color: {sidebar_bg};
