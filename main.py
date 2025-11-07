@@ -1,41 +1,46 @@
 import streamlit as st
+from web_functions import load_data
+from Tabs import diagnosis, home, result, kc, talk2doc
 
-# Configure the app
+# Configure the app (moved to the top for best practices)
 st.set_page_config(
-    page_title='Theme Changer App',
-    page_icon='🎨',
+    page_title='Diabetes Prediction System',
+    page_icon='🥯',
     layout='wide',
     initial_sidebar_state='auto'
 )
 
-# Option to adjust label visibility (for demonstration)
-show_label = st.checkbox("Show label for theme selector?", value=False)
-label_visibility = "visible" if show_label else "collapsed"
+# Theme selector in a column layout (fixed: adjusted column ratios for visibility)
+col1, col2 = st.columns([1, 2])  # Changed [0, 2] to [1, 2] for col1 to have some width
+with col1:
+    # Added a placeholder or label if needed; currently empty as in original
+    pass
+with col2:
+    theme = st.selectbox("Theme", ["🌞", "🌙"], label_visibility="collapsed")
 
-# Theme selector with adjustable label_visibility
-theme = st.selectbox(
-    "Choose Theme" if show_label else "",  # Label only if visible
-    ["🌞 Light", "🌙 Dark"],
-    label_visibility=label_visibility
-)
-
-# Define theme colors
-if theme == "🌞 Light":
+# --- Theme Color Variables ---
+# Fixed: Check for "🌞" (sun emoji) for light mode instead of "Light"
+if theme == "🌞":  # Assuming 🌞 is light mode
     bg_color = "#ffffff"
     text_color = "#000000"
     sidebar_bg = "#f0f2f6"
     header_bg = "#ffffff"
-    button_bg = "#e6e6e6"
-    button_text = "#000000"
-else:  # Dark mode
+    select_bg = "#ffffff"
+    select_text = "#000000"
+    hover_bg = "#e6e6e6"
+    border_color = "#d0d0d0"
+else:  # 🌙 for dark mode
     bg_color = "#0e1117"
     text_color = "#fafafa"
     sidebar_bg = "#262730"
     header_bg = "#0e1117"
-    button_bg = "#2a2d33"
-    button_text = "#ffffff"
+    select_bg = "#1a1d21"
+    select_text = "#ffffff"
+    hover_bg = "#2a2d33"
+    border_color = "#333333"
 
-# Apply custom CSS for theme
+# --- Apply Custom CSS ---
+# Fixed: Removed invalid f-string syntax (extra quotes), corrected CSS errors (e.g., # comment, overflow value)
 st.markdown(
     f"""
     <style>
@@ -56,20 +61,24 @@ st.markdown(
     [data-testid="stHeader"] {{
         background-color: {header_bg} !important;
         color: {text_color} !important;
+        border-bottom: 1px solid {border_color};
         transition: all 0.3s ease-in-out;
     }}
 
-    /* Buttons */
-    .stButton > button {{
-        background-color: {button_bg};
-        color: {button_text};
-        border: 1px solid {text_color};
-        transition: all 0.3s ease-in-out;
+    /* Improve visibility of selected text inside dropdown */
+    div[data-baseweb="select"] span {{
+        font-size: 8px !important;
+        font-weight: 300 !important;
+        letter-spacing: 0.3px;
+        color: inherit !important;
     }}
 
-    .stButton > button:hover {{
-        background-color: {text_color};
-        color: {bg_color};
+    /* Improve visibility of placeholder and value text */
+    div[data-baseweb="select"] div[role="button"] {{
+        color: inherit !important;
+        font-size: 6px !important;
+        font-weight: 250 !important;
+        text-align: center;
     }}
 
     /* Text elements */
@@ -77,22 +86,73 @@ st.markdown(
         color: {text_color} !important;
         transition: color 0.3s ease-in-out;
     }}
+
+    /* Theme dropdown container */
+    div[data-baseweb="select"] > div {{
+        background-color: {select_bg};
+        color: {select_text};
+        border: 1.5px solid {border_color};
+        border-radius: 4px;
+        padding: 5px 5px;
+        font-weight: 100;
+        margin-top: 5px;
+        margin-right: 10px;
+        transition: all 0.3s ease-in-out;
+    }}
+
+    /* Hover / focus effect for dropdown */
+    div[data-baseweb="select"] > div:hover {{
+        background-color: {hover_bg};
+        box-shadow: 0px 0px 6px rgba(0,0,0,0.1);
+        cursor: pointer;
+    }}
+
+    /* Dropdown popover (option list) */
+    div[data-baseweb="popover"] {{
+        background-color: {select_bg} !important;
+        color: {select_text} !important;
+        border: 1.5px solid {border_color};
+        border-radius: 10px;
+        overflow: visible;  /* Fixed: Changed 'unhidden' to 'visible' (valid CSS value) */
+    }}
+
+    /* Each option inside dropdown */
+    li[role="option"] {{
+        background-color: {select_bg};
+        color: {select_text};
+        padding: 10px;
+        font-weight: 250;
+        transition: background-color 0.2s ease-in-out;
+    }}
+
+    li[role="option"]:hover {{
+        background-color: {hover_bg};
+    }}
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Main content
-st.title("Theme Changer Demo")
-st.write("Use the checkbox above to toggle the label visibility for the theme selector.")
-st.write(f"Current label visibility: **{label_visibility}**")
+# Tabs dictionary
+Tabs = {
+    "Home": home,
+    "Ask Queries": talk2doc,
+    "Diagnosis": diagnosis,
+    "Result": result,
+    "Knowledge Center": kc
+}
 
-# Example elements to demonstrate theme
-st.header("Sample Header")
-st.write("This is some sample text to show how the theme affects colors.")
-if st.button("Click Me!"):
-    st.success("Button clicked! Theme is working.")
+# Sidebar navigation
+st.sidebar.title('Navigation')
+page = st.sidebar.radio("Page", list(Tabs.keys()))
+st.sidebar.info('Made with 💙 by Sudip &')
 
-# Sidebar content
-st.sidebar.header("Sidebar")
-st.sidebar.write("This sidebar also changes with the theme.")
+# Load data (consider adding @st.cache_data for performance if data is large)
+df, X, y = load_data()
+
+# Route to the selected tab
+# Fixed: Simplified condition from list check to direct equality
+if page == "Diagnosis":
+    Tabs[page].app(df, X, y)
+else:
+    Tabs[page].app()
