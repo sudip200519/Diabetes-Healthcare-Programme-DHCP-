@@ -45,6 +45,19 @@ else:  # 🌙 for dark mode
     border_color = "#333333"
     height='50'
     width='30'
+     div[data-baseweb="select"] span {{
+        font-size: 14px !important;  /* Adjusted: Increased font size for better readability */
+        font-weight: 400 !important;
+        letter-spacing: 0.3px;
+        color: inherit !important;
+    }}
+    /* Improve visibility of placeholder and value text */
+    div[data-baseweb="select"] div[role="button"] {{
+        color: inherit !important;
+        font-size: 14px !important;  /* Adjusted: Increased font size for better readability */
+        font-weight: 400 !important;
+        text-align: center;
+    }}
 
 # --- Apply Custom CSS ---
 # Fixed: Removed invalid f-string syntax (extra quotes), corrected CSS errors (e.g., # comment, overflow value)
