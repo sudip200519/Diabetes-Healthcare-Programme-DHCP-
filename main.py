@@ -7,7 +7,9 @@ st.set_page_config(
     page_title='Diabetes Prediction System',
     page_icon='🥯',
     layout='wide',
-    initial_sidebar_state='auto'
+    initial_sidebar_state='auto',
+     height='auto'
+    
 )
 
 # Theme selector in a column layout (fixed: adjusted column ratios for visibility)
