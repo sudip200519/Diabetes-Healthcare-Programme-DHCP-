@@ -39,7 +39,7 @@ else:  # 🌙 for dark mode
     hover_bg = "#2a2d33"
     border_color = "#333333"
     size="10"
-    border: 1.5px solid {border_color};
+    border: 15px solid {border_color};
     border-radius: 10px;
 
 # --- Apply Custom CSS ---
