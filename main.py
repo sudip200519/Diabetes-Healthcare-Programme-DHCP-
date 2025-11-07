@@ -46,7 +46,7 @@ else:  # 🌙 for dark mode
     height='50'
     width='30'
 div[data-baseweb="select"] span {{
-        font-size: 0.14px !important;  /* Adjusted: Increased font size for better readability */
+        font-size: 14px !important;  /* Adjusted: Increased font size for better readability */
         font-weight: 400 !important;
         letter-spacing: 0.3px;
         color: inherit !important;
@@ -54,7 +54,7 @@ div[data-baseweb="select"] span {{
     /* Improve visibility of placeholder and value text */
 div[data-baseweb="select"] div[role="button"] {{
         color: inherit !important;
-        font-size: 0.14px !important;  /* Adjusted: Increased font size for better readability */
+        font-size: 14px !important;  /* Adjusted: Increased font size for better readability */
         font-weight: 400 !important;
         text-align: center;
     }}
