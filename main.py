@@ -11,7 +11,7 @@ st.set_page_config(
 )
 
 # Theme selector in a column layout (fixed: adjusted column ratios for visibility)
-col1, col2 = st.columns([1, 2])  # Changed [0, 2] to [1, 2] for col1 to have some width
+col1, col2 = st.columns([3, 1])  # Changed [0, 2] to [1, 2] for col1 to have some width
 with col1:
     # Added a placeholder or label if needed; currently empty as in original
     pass
