@@ -6,7 +6,7 @@ from Tabs import diagnosis, home, result, kc, talk2doc
 st.set_page_config(
     page_title='Diabetes Prediction System',
     page_icon='🥯',
-    layout='wide,
+    layout='wide',
     initial_sidebar_state='auto'
     
 )
