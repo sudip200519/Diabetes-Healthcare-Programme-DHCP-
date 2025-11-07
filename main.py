@@ -51,7 +51,7 @@ else:  # 🌙 for dark mode
 # Fixed: Removed invalid f-string syntax (extra quotes), corrected CSS errors (e.g., # comment, overflow value)
 # Fixed: Ensured all CSS is inside the f-string; corrected invalid font-size values (e.g., 0.14px to 14px for validity and readability)
 st.markdown(
-    f"""
+
     <style>
     /* Main page background */
     [data-testid="stAppViewContainer"] {{
@@ -82,7 +82,7 @@ st.markdown(
         color: inherit !important;
     }}
 
-    /* Improve visibility of placeholder and value text */
+
     div[data-baseweb="select"] div[role="button"] {{
         color: inherit !important;
         font-size: 14px !important;  /* Fixed: Valid and readable font size (changed from invalid 0.14px) */
@@ -96,7 +96,7 @@ st.markdown(
         transition: color 0.3s ease-in-out;
     }}
 
-    /* Theme dropdown container */
+
     div[data-baseweb="select"] > div {{
         background-color: {select_bg};
         color: {select_text};
