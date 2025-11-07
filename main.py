@@ -32,6 +32,8 @@ if theme == "🌞":  # Assuming 🌞 is light mode
     select_text = "#000000"
     hover_bg = "#e6e6e6"
     border_color = "#d0d0d0"
+    height='50'
+    width='30'
 else:  # 🌙 for dark mode
     bg_color = "#0e1117"
     text_color = "#fafafa"
@@ -41,6 +43,8 @@ else:  # 🌙 for dark mode
     select_text = "#ffffff"
     hover_bg = "#2a2d33"
     border_color = "#333333"
+    height='50'
+    width='30'
 
 # --- Apply Custom CSS ---
 # Fixed: Removed invalid f-string syntax (extra quotes), corrected CSS errors (e.g., # comment, overflow value)
