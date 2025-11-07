@@ -7,8 +7,7 @@ st.set_page_config(
     page_title='Diabetes Prediction System',
     page_icon='🥯',
     layout='wide',
-    initial_sidebar_state='auto',
-    height='10px'
+    initial_sidebar_state='auto'
     
 )
 
