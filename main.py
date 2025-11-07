@@ -10,13 +10,14 @@ st.set_page_config(
     initial_sidebar_state='auto'
 )
 
-# Theme selector in a column layout (fixed: adjusted column ratios for visibility)
-col1, col2 = st.columns([1, 2])  # Changed [0, 2] to [1, 2] for col1 to have some width
-with col1:
-    # Added a placeholder or label if needed; currently empty as in original
-    pass
-with col2:
-    theme = st.selectbox("Theme", ["🌞", "🌙"], label_visibility="collapsed")
+# Sidebar navigation and theme selector (arranged in the sidebar for better organization)
+st.sidebar.title('Navigation')
+page = st.sidebar.radio("Page", list(Tabs.keys()))
+
+# Theme selector in sidebar (moved here for cleaner arrangement)
+theme = st.sidebar.selectbox("Theme", ["🌞", "🌙"], label_visibility="collapsed")
+
+st.sidebar.info('Made with 💙 by Sudip &')
 
 # --- Theme Color Variables ---
 # Fixed: Check for "🌞" (sun emoji) for light mode instead of "Light"
@@ -141,11 +142,6 @@ Tabs = {
     "Result": result,
     "Knowledge Center": kc
 }
-
-# Sidebar navigation
-st.sidebar.title('Navigation')
-page = st.sidebar.radio("Page", list(Tabs.keys()))
-st.sidebar.info('Made with 💙 by Sudip &')
 
 # Load data (consider adding @st.cache_data for performance if data is large)
 df, X, y = load_data()
