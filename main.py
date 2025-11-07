@@ -19,7 +19,8 @@ with col1:
     pass
 with col2:
     theme = st.selectbox("Theme", ["🌞", "🌙"], label_visibility="collapsed")
-
+    height='50'
+    width='30'
 # --- Theme Color Variables ---
 # Fixed: Check for "🌞" (sun emoji) for light mode instead of "Light"
 if theme == "🌞":  # Assuming 🌞 is light mode
