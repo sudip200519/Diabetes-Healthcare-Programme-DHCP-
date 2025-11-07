@@ -16,7 +16,8 @@ with col1:
     # Added a placeholder or label if needed; currently empty as in original
     pass
 with col2:
-   theme = st.selectbox("Theme",["Light🌞", "🌙Dark"], label_visibility="collapsed")
+    theme = st.selectbox("Theme", ["🌞", "🌙"], label_visibility="collapsed")
+
 # --- Theme Color Variables ---
 # Fixed: Check for "🌞" (sun emoji) for light mode instead of "Light"
 if theme == "🌞":  # Assuming 🌞 is light mode
@@ -144,7 +145,7 @@ Tabs = {
 # Sidebar navigation
 st.sidebar.title('Navigation')
 page = st.sidebar.radio("Page", list(Tabs.keys()))
-st.sidebar.info('Made with 💙 by Sudip & Raz')
+st.sidebar.info('Made with 💙 by Sudip &')
 
 # Load data (consider adding @st.cache_data for performance if data is large)
 df, X, y = load_data()
