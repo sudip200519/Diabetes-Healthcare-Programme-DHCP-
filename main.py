@@ -155,7 +155,7 @@ Tabs = {
 # Sidebar navigation
 st.sidebar.title('Navigation')
 page = st.sidebar.radio("Page", list(Tabs.keys()))
-st.sidebar.info('Made with 💙 by Sudip &')
+st.sidebar.info('Made with 💙 by Sudip & Raz')
 
 # Load data (consider adding @st.cache_data for performance if data is large)
 df, X, y = load_data()
