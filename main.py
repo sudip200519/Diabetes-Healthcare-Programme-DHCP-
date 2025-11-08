@@ -147,9 +147,9 @@ f"""
 Tabs = {
     "Home": home,
     "Diagnosis": diagnosis,
-    "Knowledge Center": kc,
     "Result": result,
-    "Ask Queries": talk2doc
+    "Ask Queries": talk2doc,
+    "Knowledge Center": kc
 }
 
 # Sidebar navigation
