@@ -138,10 +138,10 @@ f"""
 # Tabs dictionary
 Tabs = {
     "Home": home,
-    "Ask Queries": talk2doc,
     "Diagnosis": diagnosis,
+    "Knowledge Center": kc,
     "Result": result,
-    "Knowledge Center": kc
+    "Ask Queries": talk2doc
 }
 
 # Sidebar navigation
