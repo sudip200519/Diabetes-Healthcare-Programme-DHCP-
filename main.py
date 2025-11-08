@@ -10,6 +10,14 @@ st.set_page_config(
     initial_sidebar_state='auto'
     
 )
+######
+# Read HTML file
+with open("index.html", "r", encoding="utf-8") as f:
+    html_code = f.read()
+
+# Display HTML inside Streamlit app
+st.components.v1.html(html_code, height=600, scrolling=True)
+#######
 #######
 # Theme selector in a column layout (fixed: adjusted column ratios for visibility)
 col1, col2 = st.columns([8, 1])  # Changed [0, 2] to [1, 2] for col1 to have some width
