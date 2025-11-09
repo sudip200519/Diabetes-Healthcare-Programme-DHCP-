@@ -28,6 +28,10 @@ with open("assets/js/main.js") as f:
     js_code = f.read()
 
 #######
+components.html(f"""
+    <script>{js_code}</script>
+""", height=0)
+
 #######
 # Theme selector in a column layout (fixed: adjusted column ratios for visibility)
 col1, col2 = st.columns([8, 1])  # Changed [0, 2] to [1, 2] for col1 to have some width
