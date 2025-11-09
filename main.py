@@ -1,6 +1,5 @@
 import streamlit as st
 from web_functions import load_data
-from index 
 from Tabs import diagnosis, home, result, kc, talk2doc
 
 # Configure the app (moved to the top for best practices)
@@ -13,8 +12,13 @@ st.set_page_config(
 )
 ######
 # Read HTML file
+# Read HTML
 with open("index.html", "r", encoding="utf-8") as f:
-    html_code = f.read()
+    html_content = f.read()
+
+# Read CSS
+with open("assets/css/style.css", "r", encoding="utf-8") as f:
+    css_content = f.read()
 
 # Display HTML inside Streamlit app
 st.components.v1.html(html_code, height=600, scrolling=True)
