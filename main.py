@@ -17,7 +17,7 @@ with open("index.html", "r", encoding="utf-8") as f:
     html_content = f.read()
 
 # Read CSS
-with open("assets/css/style.css", "r", encoding="utf-8") as f:
+with open("assets/css/styles.css", "r", encoding="utf-8") as f:
     css_content = f.read()
 
 # Display HTML inside Streamlit app
