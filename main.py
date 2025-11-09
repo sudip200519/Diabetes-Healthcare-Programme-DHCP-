@@ -1,4 +1,7 @@
 import streamlit as st
+###
+import streamlit.components.v1 as components
+###
 from web_functions import load_data
 from Tabs import diagnosis, home, result, kc, talk2doc
 
@@ -154,6 +157,38 @@ Tabs = {
     "Ask Queries": talk2doc,
     "Knowledge Center": kc
 }
+
+#######
+
+st.set_page_config(page_title="AI Healthcare", layout="wide")
+
+# CSS Load
+with open("assets/css/styles.css", "r") as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+# HTML Sidebar Load
+with open("index.html", "r", encoding="utf-8") as f:
+    html_sidebar = f.read()
+
+if "page" not in st.session_state:
+    st.session_state["page"] = "Home"
+
+st.components.v1.html(html_sidebar, height=700, scrolling=True)
+
+page = st.session_state["page"]
+
+# Page content based on selection
+if page == "Home":
+    st.title("🏠 Home")
+elif page == "Diagnosis":
+    st.title("🧪 Diagnosis")
+elif page == "Result":
+    st.title("📊 Result")
+elif page == "Ask Queries":
+    st.title("💬 Ask Queries")
+elif page == "Knowledge Center":
+    st.title("📚 Knowledge Center")
+######
 
 # Sidebar navigation
 st.sidebar.title('Navigation')
