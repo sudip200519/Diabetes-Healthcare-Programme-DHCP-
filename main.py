@@ -23,6 +23,10 @@ with open("index.html", "r", encoding="utf-8") as f:
 with open("assets/css/styles.css", "r", encoding="utf-8") as f:
     css_content = f.read()
 
+# Inject JS
+with open("assets/js/main.js") as f:
+    js_code = f.read()
+
 #######
 #######
 # Theme selector in a column layout (fixed: adjusted column ratios for visibility)
