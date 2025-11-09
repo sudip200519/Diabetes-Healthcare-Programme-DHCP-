@@ -5,6 +5,7 @@ from fpdf import FPDF
 from datetime import datetime
 import io
 import os
+import sys
 import csv
 from dotenv import load_dotenv
 import google.generativeai as genai
