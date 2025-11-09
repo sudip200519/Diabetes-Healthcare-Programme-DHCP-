@@ -5,7 +5,9 @@ from fpdf import FPDF
 from datetime import datetime
 import io
 import os
+####
 import sys
+#####
 import csv
 from dotenv import load_dotenv
 import google.generativeai as genai
@@ -15,9 +17,9 @@ load_dotenv()
 # Load API Key from Streamlit secrets
 GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
 
-# Add parent directory to system path
+##### Add parent directory to system path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
+#####
 if not GEMINI_API_KEY:
     raise ValueError("Gemini API key is missing! Add it to Streamlit secrets.")
 
