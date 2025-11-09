@@ -1,5 +1,6 @@
 import streamlit as st
 from web_functions import load_data
+from index 
 from Tabs import diagnosis, home, result, kc, talk2doc
 
 # Configure the app (moved to the top for best practices)
