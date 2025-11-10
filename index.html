@@ -1,45 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" crossorigin="">
-   <link rel="stylesheet" href="assets/css/styles.css">
-   <title>Sidebar Menu</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register Form</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-   <div class="sidebar" id="sidebar">
-      <nav class="sidebar__container">
-         <div class="sidebar__logo">
-            <img src="assets/img/yt-logo.svg" alt="" class="sidebar__logo-img">
-            <span class="sidebar__logo-text">AI Health</span>
-         </div>
-
-         <div class="sidebar__list">
-            <a href="#" class="sidebar__link" onclick="selectPage('Home')">
-               <i class="ri-home-5-line"></i><span>Home</span>
-            </a>
-            <a href="#" class="sidebar__link" onclick="selectPage('Diagnosis')">
-               <i class="ri-heart-pulse-line"></i><span>Diagnosis</span>
-            </a>
-            <a href="#" class="sidebar__link" onclick="selectPage('Result')">
-               <i class="ri-bar-chart-2-line"></i><span>Result</span>
-            </a>
-            <a href="#" class="sidebar__link" onclick="selectPage('Ask Queries')">
-               <i class="ri-question-line"></i><span>Ask Queries</span>
-            </a>
-            <a href="#" class="sidebar__link" onclick="selectPage('Knowledge Center')">
-               <i class="ri-book-open-line"></i><span>Knowledge Center</span>
-            </a>
-         </div>
-         <p class="footer">Made with 💙 by Sudip & Raz</p>
-      </nav>
-   </div>
-
-   <script>
-      function selectPage(page) {
-         window.parent.postMessage({ type: "streamlit:setSessionState", key: "page", value: page }, "*");
-      }
-   </script>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-toggle">
+                <button id="login-toggle" class="active">Log In</button>
+                <button id="register-toggle">Create Account</button>
+            </div>
+            
+            <form id="login-form" class="form active">
+                <h2><i>Log In</i></h2>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Log In</button>
+                <a href="#" id="forgot-password">Forgot Password?</a>
+            </form>
+            
+            <form id="register-form" class="form">
+                <h2>Register</h2>
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <button type="submit">Register</button>
+            </form>
+            
+            <div id="forgot-password-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Reset Password</h2>
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Send Reset Link</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
