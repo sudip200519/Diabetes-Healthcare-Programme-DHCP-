@@ -177,7 +177,7 @@ with open("assets/css/styles.css", "r") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 # HTML Sidebar Load
-with open("index.html", "r", encoding="utf-8") as f:
+with open("sidebar.html", "r", encoding="utf-8") as f:
     html_sidebar = f.read() 
 
 if "page" not in st.session_state:
@@ -205,7 +205,7 @@ elif page == "Knowledge Center":
 st.sidebar.title('Side Bar')
 page = st.sidebar.radio("Page", list(Tabs.keys()))
 st.sidebar.info('Made with 💙 by Sudip & Raz') """
-st.markdown(open("index.html").read(), unsafe_allow_html=True)
+st.markdown(open("sidebar.html").read(), unsafe_allow_html=True)
 
 
 # Load data (consider adding @st.cache_data for performance if data is large)
