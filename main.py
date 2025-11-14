@@ -16,7 +16,7 @@ st.set_page_config(
 ######
 # Read HTML file
 # Read HTML
-with open("index.html", "r", encoding="utf-8") as f:
+with open("sidebar.html", "r", encoding="utf-8") as f:
     html_content = f.read()
 
 # Read CSS
