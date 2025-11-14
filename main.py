@@ -170,13 +170,13 @@ Tabs = {
 
 st.set_page_config(page_title="AI Healthcare", layout="wide")
 
-# CSS Load
+"""# CSS Load
 with open("assets/css/styles.css", "r") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 # HTML Sidebar Load
 with open("index.html", "r", encoding="utf-8") as f:
-    html_sidebar = f.read()
+    html_sidebar = f.read() """
 
 if "page" not in st.session_state:
     st.session_state["page"] = "Home"
