@@ -27,6 +27,8 @@ with open("assets/css/styles.css", "r", encoding="utf-8") as f:
 with open("assets/js/main.js") as f:
     js_code = f.read()
 
+
+
 #######
 components.html(f"""
     <script>{js_code}</script>
@@ -170,13 +172,13 @@ Tabs = {
 
 st.set_page_config(page_title="AI Healthcare", layout="wide")
 
-"""# CSS Load
+# CSS Load
 with open("assets/css/styles.css", "r") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 # HTML Sidebar Load
 with open("index.html", "r", encoding="utf-8") as f:
-    html_sidebar = f.read() """
+    html_sidebar = f.read() 
 
 if "page" not in st.session_state:
     st.session_state["page"] = "Home"
@@ -199,10 +201,12 @@ elif page == "Knowledge Center":
 ######
 
 # Sidebar navigation
-
-st.sidebar.title('Navigation')
+"""
+st.sidebar.title('Side Bar')
 page = st.sidebar.radio("Page", list(Tabs.keys()))
-st.sidebar.info('Made with 💙 by Sudip & Raz') 
+st.sidebar.info('Made with 💙 by Sudip & Raz') """
+st.markdown(open("index.html").read(), unsafe_allow_html=True)
+
 
 # Load data (consider adding @st.cache_data for performance if data is large)
 df, X, y = load_data()
