@@ -37,38 +37,51 @@ if page in ["Diagnosis"]:
 else:
     Tabs[page].app() """
 import streamlit as st
+from streamlit_option_menu import option_menu
 
-st.set_page_config(layout="wide")
+# 1. as sidebar menu
+with st.sidebar:
+    selected = option_menu("Main Menu", ["Home", 'Settings'], 
+        icons=['house', 'gear'], menu_icon="cast", default_index=1)
+    selected
 
-st.title('How to layout your Streamlit app')
+# 2. horizontal menu
+selected2 = option_menu(None, ["Home", "Upload", "Tasks", 'Settings'], 
+    icons=['house', 'cloud-upload', "list-task", 'gear'], 
+    menu_icon="cast", default_index=0, orientation="horizontal")
+selected2
 
-with st.expander('About this app'):
-  st.write('This app shows the various ways on how you can layout your Streamlit app.')
-  st.image('https://streamlit.io/images/brand/streamlit-logo-secondary-colormark-darktext.png', width=250)
+# 3. CSS style definitions
+selected3 = option_menu(None, ["Home", "Upload",  "Tasks", 'Settings'], 
+    icons=['house', 'cloud-upload', "list-task", 'gear'], 
+    menu_icon="cast", default_index=0, orientation="horizontal",
+    styles={
+        "container": {"padding": "0!important", "background-color": "#fafafa"},
+        "icon": {"color": "orange", "font-size": "25px"}, 
+        "nav-link": {"font-size": "25px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+        "nav-link-selected": {"background-color": "green"},
+    }
+)
 
-st.sidebar.header('Input')
-user_name = st.sidebar.text_input('What is your name?')
-user_emoji = st.sidebar.selectbox('Choose an emoji', ['', '😄', '😆', '😊', '😍', '😴', '😕', '😱'])
-user_food = st.sidebar.selectbox('What is your favorite food?', ['', 'Tom Yum Kung', 'Burrito', 'Lasagna', 'Hamburger', 'Pizza'])
+# 4. Manual item selection
+if st.session_state.get('switch_button', False):
+    st.session_state['menu_option'] = (st.session_state.get('menu_option', 0) + 1) % 4
+    manual_select = st.session_state['menu_option']
+else:
+    manual_select = None
+    
+selected4 = option_menu(None, ["Home", "Upload", "Tasks", 'Settings'], 
+    icons=['house', 'cloud-upload', "list-task", 'gear'], 
+    orientation="horizontal", manual_select=manual_select, key='menu_4')
+st.button(f"Move to Next {st.session_state.get('menu_option', 1)}", key='switch_button')
+selected4
 
-st.header('Output')
-
-col1, col2, col3 = st.columns(3)
-
-with col1:
-  if user_name != '':
-    st.write(f'👋 Hello {user_name}!')
-  else:
-    st.write('👈  Please enter your **name**!')
-
-with col2:
-  if user_emoji != '':
-    st.write(f'{user_emoji} is your favorite **emoji**!')
-  else:
-    st.write('👈 Please choose an **emoji**!')
-
-with col3:
-  if user_food != '':
-    st.write(f'🍴 **{user_food}** is your favorite **food**!')
-  else:
-    st.write('👈 Please choose your favorite **food**!')
+# 5. Add on_change callback
+def on_change(key):
+    selection = st.session_state[key]
+    st.write(f"Selection changed to {selection}")
+    
+selected5 = option_menu(None, ["Home", "Upload", "Tasks", 'Settings'],
+                        icons=['house', 'cloud-upload', "list-task", 'gear'],
+                        on_change=on_change, key='menu_5', orientation="horizontal")
+selected5
