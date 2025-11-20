@@ -283,16 +283,18 @@ st.markdown(f"<div id='customSidebar'>{html_sidebar}</div>", unsafe_allow_html=T
 
 #with open("assets/css/styles.css", "r", encoding="utf-8") as f:
 #    css_styles = f.read() 
+with open("assets/css/styles.css", "r", encoding="utf-8") as f:
+    css_styles = f.read()
 
-with open("assets/css/styles.css") as f:
-    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+st.markdown(f"<style>{css_styles}</style>", unsafe_allow_html=True)
+
 
 with open("assets/js/main.js", "r", encoding="utf-8") as f:
     js_code = f.read()
 
 
 # Inject CSS Globally
-st.markdown(f"<style>{css_styles}</style>", unsafe_allow_html=True)
+#st.markdown(f"<style>{css_styles}</style>", unsafe_allow_html=True)
 
 
 # Inject JS
