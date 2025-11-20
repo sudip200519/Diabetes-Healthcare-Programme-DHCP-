@@ -1,4 +1,4 @@
-import streamlit as st
+"""import streamlit as st
 ###
 import streamlit.components.v1 as components
 ###
@@ -30,15 +30,15 @@ with open("assets/js/main.js") as f:
 #####
 
 # HIDE STREAMLIT DEFAULT SIDEBAR
-st.markdown("""
+st.markdown(""" """" 
 <style>
 [data-testid="stSidebar"] {display: none;}
 </style>
-""", unsafe_allow_html=True)
+""" """", unsafe_allow_html=True)
 #######
-components.html(f"""
+components.html(f""" """
     <script>{js_code}</script>
-""", height=0)
+""" """,  height=0)
 
 #######
 # Theme selector in a column layout (fixed: adjusted column ratios for visibility)
@@ -74,7 +74,7 @@ else:  # 🌙 for dark mode
 # --- Apply Custom CSS ---
 # Fixed: Removed invalid f-string syntax (extra quotes), corrected CSS errors (e.g., # comment, overflow value)
 st.markdown(
-f"""
+f""" """
     <style>
     /* Main page background */
     [data-testid="stAppViewContainer"] {{
@@ -161,7 +161,7 @@ f"""
         background-color: {hover_bg};
     }}
     </style>
-    """,
+    """ """,
     unsafe_allow_html=True
 )
 ######
@@ -207,10 +207,10 @@ elif page == "Knowledge Center":
 ######
 
 # Sidebar navigation
-"""
+""" """
 st.sidebar.title('Side Bar')
 page = st.sidebar.radio("Page", list(Tabs.keys()))
-st.sidebar.info('Made with 💙 by Sudip & Raz') """
+st.sidebar.info('Made with 💙 by Sudip & Raz') """ """
 st.markdown(open("sidebar.html").read(), unsafe_allow_html=True)
 
 
@@ -219,6 +219,125 @@ df, X, y = load_data()
 
 # Route to the selected tab
 # Fixed: Simplified condition from list check to direct equality
+if page == "Diagnosis":
+    Tabs[page].app(df, X, y)
+else:
+    Tabs[page].app()
+
+"""
+import streamlit as st
+import streamlit.components.v1 as components
+from web_functions import load_data
+from Tabs import diagnosis, home, result, kc, talk2doc
+
+
+# -----------------------------------------------------
+# 1) PAGE CONFIG
+# -----------------------------------------------------
+st.set_page_config(
+    page_title="AI Diabetes System",
+    page_icon="💊",
+    layout="wide",
+)
+
+
+# -----------------------------------------------------
+# 2) HIDE DEFAULT STREAMLIT SIDEBAR + HAMBURGER
+# -----------------------------------------------------
+st.markdown("""
+<style>
+[data-testid="stSidebar"] {display: none !important;}
+[data-testid="collapsedControl"] {display: none !important;}
+</style>
+""", unsafe_allow_html=True)
+
+
+# -----------------------------------------------------
+# 3) LOAD HTML / CSS / JS FILES
+# -----------------------------------------------------
+with open("sidebar.html", "r", encoding="utf-8") as f:
+    html_sidebar = f.read()
+
+with open("assets/css/styles.css", "r", encoding="utf-8") as f:
+    css_styles = f.read()
+
+with open("assets/js/main.js", "r", encoding="utf-8") as f:
+    js_code = f.read()
+
+
+# Inject CSS Globally
+st.markdown(f"<style>{css_styles}</style>", unsafe_allow_html=True)
+
+# Inject JS
+components.html(f"<script>{js_code}</script>", height=0)
+
+
+# -----------------------------------------------------
+# 4) CUSTOM HTML SIDEBAR LOAD
+# -----------------------------------------------------
+st.components.v1.html(html_sidebar, height=700, scrolling=True)
+
+
+# -----------------------------------------------------
+# 5) THEME SELECTOR (Light / Dark)
+# -----------------------------------------------------
+col1, col2 = st.columns([9, 1])
+with col2:
+    theme = st.selectbox("Theme", ["🌞", "🌙"])
+
+
+# Colors
+if theme == "🌞":
+    bg_color = "#ffffff"
+    text_color = "#000000"
+    header_bg = "#7067C7"
+else:
+    bg_color = "#0e1117"
+    text_color = "#ffffff"
+    header_bg = "#07023B"
+
+# Apply theme
+st.markdown(
+f"""
+<style>
+[data-testid="stAppViewContainer"] {{
+    background-color: {bg_color} !important;
+    color: {text_color} !important;
+}}
+[data-testid="stHeader"] {{
+    background-color: {header_bg} !important;
+}}
+</style>
+""", unsafe_allow_html=True)
+
+
+# -----------------------------------------------------
+# 6) TAB SYSTEM
+# -----------------------------------------------------
+Tabs = {
+    "Home": home,
+    "Diagnosis": diagnosis,
+    "Result": result,
+    "Ask Queries": talk2doc,
+    "Knowledge Center": kc
+}
+
+# Session state for page
+if "page" not in st.session_state:
+    st.session_state["page"] = "Home"
+
+page = st.session_state["page"]
+
+
+# -----------------------------------------------------
+# 7) LOAD DATA
+# -----------------------------------------------------
+df, X, y = load_data()
+
+
+# -----------------------------------------------------
+# 8) RENDER CURRENT PAGE
+# -----------------------------------------------------
 if page == "Diagnosis":
     Tabs[page].app(df, X, y)
 else:
