@@ -27,8 +27,14 @@ with open("assets/css/styles.css", "r", encoding="utf-8") as f:
 with open("assets/js/main.js") as f:
     js_code = f.read()
 
+#####
 
-
+# HIDE STREAMLIT DEFAULT SIDEBAR
+st.markdown("""
+<style>
+[data-testid="stSidebar"] {display: none;}
+</style>
+""", unsafe_allow_html=True)
 #######
 components.html(f"""
     <script>{js_code}</script>
