@@ -316,7 +316,7 @@ f"""
 """, unsafe_allow_html=True)
 
 ######
-st.markdown(
+st.markdown( """
 <style>
 
 #customSidebar {
@@ -341,7 +341,7 @@ st.markdown(
     margin-left: 270px !important;
 }
 
-</style>
+</style> """
 , unsafe_allow_html=True)
 
 ######
