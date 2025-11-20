@@ -19,10 +19,13 @@ Tabs = {
     "Knowledge Center":kc
 }
 
-st.sidebar.title('Navigation')
+#st.sidebar.title('Navigation')
 
-page = st.sidebar.radio("Page", list(Tabs.keys()))
-st.sidebar.info('Made with 💙 by Ramzan & Sudip')
+#page = st.sidebar.radio("Page", list(Tabs.keys()))
+#st.sidebar.info('Made with 💙 by Ramzan & Sudip')
+
+page = st_navbar(["Home", "Ask Queries", "Diagnosis", "Result", "Knowledge Center"])
+st.write(page)
 
 df, X, y = load_data()
 
