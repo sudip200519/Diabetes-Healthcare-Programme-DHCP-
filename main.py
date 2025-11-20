@@ -1,6 +1,6 @@
 import streamlit as st
 from web_functions import load_data
-from streamlit_navigation_bar import st_navbar
+
 
 
 from Tabs import diagnosis, home, result,  kc, talk2doc
@@ -23,10 +23,10 @@ Tabs = {
 
 #st.sidebar.title('Navigation')
 
-#page = st.sidebar.radio("Page", list(Tabs.keys()))
+page = st.sidebar.radio("Page", list(Tabs.keys()))
 #st.sidebar.info('Made with 💙 by Ramzan & Sudip')
 
-page = st_navbar("Page", list(Tabs.keys()))
+
 st.sidebar.info('Made with 💙 by Ramzan & Sudip')
 st.write(page)
 
