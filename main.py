@@ -255,8 +255,31 @@ st.markdown("""
 # -----------------------------------------------------
 # 3) LOAD HTML / CSS / JS FILES
 # -----------------------------------------------------
-with open("sidebar.html", "r", encoding="utf-8") as f:
+"""with open("sidebar.html", "r", encoding="utf-8") as f:
+    html_sidebar = f.read() """
+####
+with open("sidebar.html", "r") as f:
     html_sidebar = f.read()
+
+st.markdown("""
+<style>
+#customSidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    background: #07023B;
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 999;
+}
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown(f"<div id='customSidebar'>{html_sidebar}</div>", unsafe_allow_html=True)
+
+####
 
 with open("assets/css/styles.css", "r", encoding="utf-8") as f:
     css_styles = f.read()
@@ -275,13 +298,19 @@ components.html(f"<script>{js_code}</script>", height=0)
 # -----------------------------------------------------
 # 4) CUSTOM HTML SIDEBAR LOAD
 # -----------------------------------------------------
-st.components.v1.html(f"""
-<div id='customSidebar'>
-    {html_sidebar}
-</div>
-""", height=1000, scrolling=True)
+#st.components.v1.html(f"""
+#<div id='customSidebar'>
+ #   {html_sidebar}
+#</div>
+#""", height=1000, scrolling=True) 
 
-
+st.markdown("""
+<style>
+[data-testid="stAppViewContainer"] {
+    margin-left: 270px !important;
+}
+</style>
+""", unsafe_allow_html=True)
 
 # -----------------------------------------------------
 # 5) THEME SELECTOR (Light / Dark)
