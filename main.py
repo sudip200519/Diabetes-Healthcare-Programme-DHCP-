@@ -275,7 +275,12 @@ components.html(f"<script>{js_code}</script>", height=0)
 # -----------------------------------------------------
 # 4) CUSTOM HTML SIDEBAR LOAD
 # -----------------------------------------------------
-st.components.v1.html(html_sidebar, height=700, scrolling=True)
+st.components.v1.html(f"""
+<div id='customSidebar'>
+    {html_sidebar}
+</div>
+""", height=1000, scrolling=True)
+
 
 
 # -----------------------------------------------------
@@ -310,7 +315,36 @@ f"""
 </style>
 """, unsafe_allow_html=True)
 
+######
+st.markdown("""
+<style>
 
+#customSidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 260px;
+    height: 100vh;
+    background: #07023B;
+    overflow-y: auto;
+    z-index: 9999;
+    padding: 20px 10px;
+}
+
+/* Move your main app content to the right */
+.main-container {
+    margin-left: 270px !important;
+}
+
+/* Fix Streamlit content overlap */
+[data-testid="stAppViewContainer"] {
+    margin-left: 270px !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+######
 # -----------------------------------------------------
 # 6) TAB SYSTEM
 # -----------------------------------------------------
