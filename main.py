@@ -281,8 +281,11 @@ st.markdown(f"<div id='customSidebar'>{html_sidebar}</div>", unsafe_allow_html=T
 
 ####
 
-with open("assets/css/styles.css", "r", encoding="utf-8") as f:
-    css_styles = f.read()
+#with open("assets/css/styles.css", "r", encoding="utf-8") as f:
+#    css_styles = f.read() 
+
+with open("assets/css/styles.css") as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 with open("assets/js/main.js", "r", encoding="utf-8") as f:
     js_code = f.read()
@@ -290,6 +293,7 @@ with open("assets/js/main.js", "r", encoding="utf-8") as f:
 
 # Inject CSS Globally
 st.markdown(f"<style>{css_styles}</style>", unsafe_allow_html=True)
+
 
 # Inject JS
 components.html(f"<script>{js_code}</script>", height=0)
@@ -405,3 +409,14 @@ if page == "Diagnosis":
     Tabs[page].app(df, X, y)
 else:
     Tabs[page].app()
+#####
+# Render in Streamlit's real sidebar
+with st.sidebar:
+    st.components.v1.html(sidebar_html, height=1200, scrolling=True)
+
+# Main Page Content
+st.title("Main Page")
+st.write("Your content here...")
+
+#####
+
